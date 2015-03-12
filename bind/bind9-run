@@ -1,0 +1,1 @@
+docker run --volumes-from bind9-data --name bind9 -p 53:53 -p 53:53/udp -d emsi/bind9
