@@ -3,9 +3,9 @@ All the configuration is located in /etc/named volume. It's highly recommended t
 
 ### Create data only container:
 
-`docker run --name bind9-data emsi/bind9 true`
+`docker run --name bind9-data emsi/bind9-data`
 
-(this will yield an error but you should ignore it). Never run this container(!!!) it's not meant for it. Keep it safe as it stores the bind configuration.
+Once run it will list the content of /etc/named volume used to store the configuration (so it's safe if you accidentaly start it again). Keep it safe as it stores the bind configuration!
 
 ### Run bind container:
 
