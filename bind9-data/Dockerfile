@@ -1,4 +1,4 @@
-FROM busybox:latest
+FROM emsi/bind9
 
 VOLUME /etc/bind
 
