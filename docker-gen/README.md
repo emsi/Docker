@@ -39,5 +39,5 @@ docker run -d -p 80:80 --name nginx --volumes-from nginx-data -t nginx
 ### Start docker-gen
 This container uses template from nginx-gen-data volume and generates config to nginx-data volume (which is ultimately used by nging reverse proxy)
 ```
-docker run -d --name nginx-gen --volumes-from nginx-data --volumes-from nginx-gen-data --v /var/run/docker.sock:/var/run/docker.sock t emsi/docker-gen -notify-sighup nginx -watch /etc/docker-gen/templates/nginx.tmpl /etc/nginx/conf.d/default.conf
+docker run -d --name nginx-gen --volumes-from nginx-data --volumes-from nginx-gen-data -v /var/run/docker.sock:/var/run/docker.sock -t emsi/docker-gen -notify-sighup nginx -watch /etc/docker-gen/templates/nginx.tmpl /etc/nginx/conf.d/default.conf
 ```
