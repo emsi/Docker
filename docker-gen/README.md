@@ -24,7 +24,7 @@ This nginx takes config from ndinx-data container
 ```
 docker run -d -p 80:80 --name nginx --volumes-from nginx-data -t nginx
 ```
-*WARNING* This container does NOT listen on port 80 as nginx has an empty config at this moment. It will start to forward connection once we register an app to it.
+*WARNING* This container does NOT listen on port 80 as nginx has an empty config at this moment. It will start to forward connections once we register an app to it.
 
 ### Create nginx-gen-data (data-only container for docker-gen)
 This container holds `/etc/docker-gen' volume
