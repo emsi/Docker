@@ -31,7 +31,7 @@ This container holds `/etc/docker-gen' volume
 ```
 # create nginx-gen-data container
 docker run -ti --name nginx-gen-data emsi/docker-gen-data
-# enter the /etc/docker-gen/templates volume
+# enter the /etc/docker-gen volume
 cd $(docker inspect nginx-gen-data  | grep '"/etc/docker-gen": "' | cut -f4 -d'"')
 # download and install nginx docker-gen template
 mkdir templates
