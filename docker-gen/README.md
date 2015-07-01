@@ -56,7 +56,7 @@ This will register a tenant1.example.com host to reverse proxy based on the temp
 ```
 docker run -d -e VIRTUAL_HOST=tenant1.example.com --name tenant1 nginx
 ```
-Or any thoer app you like:
+Or any other app you like:
 ```
 docker run -d -h tenant1.example.com -e VIRTUAL_HOST=tenant1.example.com --name tenant1-test training/webapp
 docker run -d -h tenant2.example.com -e VIRTUAL_HOST=tenant2.example.com --name tenant2-joomla gjong/apache-joomla
