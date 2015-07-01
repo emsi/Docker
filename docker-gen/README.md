@@ -27,7 +27,6 @@ This nginx takes config from ndinx-data container
 ```
 docker run -d -p 80:80 --name nginx --volumes-from nginx-data -t nginx
 ```
-*WARNING* This container does NOT listen on port 80 as nginx has an empty config at this moment. It will start to forward connections once we register an app to it.
 
 ### Create docker-gen-data (data-only container for docker-gen)
 This container holds `/etc/docker-gen' volume
@@ -50,6 +49,13 @@ This container uses template from docker-gen-data volume and generates config to
 ```
 docker run -d --name docker-gen --volumes-from nginx-data --volumes-from docker-gen-data -v /var/run/docker.sock:/var/run/docker.sock -t emsi/docker-gen -config /etc/docker-gen/docker-gen.cfg
 ```
+When started you may check its log and shoud see:
+```
+# docker logs docker-gen
+2015/07/01 14:56:13 Generated '/etc/nginx/conf.d/default.conf' from 2 containers
+2015/07/01 14:56:13 Sending container 'nginx' signal '1'
+2015/07/01 14:56:13 Watching docker events
+```
 
 ### Register an app to rev-proxy
 This will register a tenant1.example.com host to reverse proxy based on the template used above.
@@ -64,3 +70,14 @@ docker run -d -h tenant3.example.com -e VIRTUAL_HOST=tenant3.example.com --name 
 ```
 etc...
 
+If it works properly you should see something like this in docker-gen logs:
+```
+# docker logs docker-gen
+2015/07/01 14:56:13 Generated '/etc/nginx/conf.d/default.conf' from 2 containers
+2015/07/01 14:56:13 Sending container 'nginx' signal '1'
+2015/07/01 14:56:13 Watching docker events
+2015/07/01 14:56:40 Received event start for container 27266157b1b6
+2015/07/01 14:56:40 Generated '/etc/nginx/conf.d/default.conf' from 3 containers
+2015/07/01 14:56:40 Sending container 'nginx' signal '1'
+```
+Note the changing number of containers (2 then 3).
