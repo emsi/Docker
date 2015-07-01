@@ -1,6 +1,6 @@
 FROM debian:wheezy
 
-ENV VERSION 0.3.9
+ENV VERSION 0.4.0
 ENV DOWNLOAD_URL https://github.com/jwilder/docker-gen/releases/download/$VERSION/docker-gen-linux-amd64-$VERSION.tar.gz
 ENV DOCKER_HOST unix:///var/run/docker.sock
 
