@@ -39,7 +39,7 @@ cd $(docker inspect docker-gen-data  | grep '"/etc/docker-gen": "' | cut -f4 -d'
 curl -o docker-gen.cfg https://raw.githubusercontent.com/emsi/Docker/master/docker-gen/docker-gen.cfg
 mkdir templates
 cd templates
-curl -o nginx.tmpl https://raw.githubusercontent.com/jwilder/docker-gen/master/templates/nginx.tmpl
+curl -o nginx.tmpl https://raw.githubusercontent.com/jwilder/nginx-proxy/master/nginx.tmpl
 cd
 ```
 At this point you should install your own template and/or docker-gen config files to implement your setup.
