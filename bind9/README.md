@@ -14,7 +14,7 @@ Once run it will list the content of /etc/named volume used to store the configu
 ### Edit the configuration
 Inspect the data container to locate the volume with configuration or simply enter:
 
-`cd $(docker inspect bind9-data | grep '"/etc/bind": "' | cut -f4 -d'"')`
+`cd $(docker inspect -f '{{(index .Mounts 0).Source }}' bind9-data)`
 
 then you can edit the configuration and restart the bind9 container.
 
