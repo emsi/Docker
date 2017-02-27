@@ -1,1 +1,1 @@
-docker build --rm=true -t emsi/deep-learning .
+nvidia-docker build --rm=true -t emsi/deep-learning .
