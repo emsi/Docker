@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip --no-cache-dir install scikit-learn nltk openpyxl seaborn pandas gensim imbalanced-learn Keras h5py Keras
+RUN pip --no-cache-dir install scikit-learn nltk openpyxl seaborn pandas gensim imbalanced-learn Keras h5py Keras many_stop_words regex
 
 RUN mkdir -p /notebooks/TF-examples && \
 	mv /notebooks/*.ipynb /notebooks/TF-examples 
